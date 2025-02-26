@@ -1,0 +1,4 @@
+[submodule "frodri12/odooPY/l10n_py"]
+	path = frodri12/odooPY/l10n_py
+	url = git@github.com:frodri12/odooPY.git
+	branch = master
