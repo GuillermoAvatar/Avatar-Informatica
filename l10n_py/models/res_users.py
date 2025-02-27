@@ -1,4 +1,4 @@
-#
+# -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
 
 class Users(models.Model):
