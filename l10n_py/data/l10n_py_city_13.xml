@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="city_py_1855" model="l10n_py_city">
         <field name="code">1855</field>
         <field name="name">ESTANCIA SALTO</field>

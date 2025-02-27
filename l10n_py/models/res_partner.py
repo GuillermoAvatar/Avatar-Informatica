@@ -21,10 +21,8 @@ class ResPartner(models.Model):
     l10n_py_city_id = fields.Many2one("l10n_py_city")
 
     l10n_py_set_responsibility_type_id = fields.Many2one(
-        'l10n_py.set.responsibility.type', string='SET Responsibility Type', index='btree_not_null', help='Defined by SET to'
-        ' identify the type of responsibilities that a person or a legal entity could have and that impacts in the'
-        ' type of operations and requirements they need.', default="1",
-    )
+        'l10n_py.set.responsibility.type', string = "SET Responsibility Type",
+        index='btree_not_null', )
 
     l10n_latam_identification_type_id = fields.Many2one('l10n_latam.identification.type',
         string="Identification Type", index='btree_not_null', auto_join=True,
@@ -35,6 +33,7 @@ class ResPartner(models.Model):
     def default_get(self,fields_list):
         #res = super(ResPartner, self).default_get(fields)
         res = super().default_get(fields_list)
+        res.update({"l10n_py_set_responsibility_type_id" : self.env['l10n_py.set.responsibility.type'].search([('code', '=', '1')], limit=1).id})
         res.update(
             {'country_id':self.env['res.country'].search([('code', '=', 'PY')], limit=1).id}
         )
