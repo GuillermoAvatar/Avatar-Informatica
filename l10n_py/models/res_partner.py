@@ -23,7 +23,7 @@ class ResPartner(models.Model):
     l10n_py_set_responsibility_type_id = fields.Many2one(
         'l10n_py.set.responsibility.type', string='SET Responsibility Type', index='btree_not_null', help='Defined by SET to'
         ' identify the type of responsibilities that a person or a legal entity could have and that impacts in the'
-        ' type of operations and requirements they need.',
+        ' type of operations and requirements they need.', default="1",
     )
 
     l10n_latam_identification_type_id = fields.Many2one('l10n_latam.identification.type',
