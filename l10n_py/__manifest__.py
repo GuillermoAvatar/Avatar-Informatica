@@ -49,7 +49,7 @@
         'data/l10n_py_city_19.xml',
         'data/l10n_py_city_20.xml',
 
-        #'views/account_move_view.xml',
+        'views/account_move_view.xml',
         'views/res_partner_view.xml',
         'views/res_company_view.xml',
         'views/res_country_view.xml',

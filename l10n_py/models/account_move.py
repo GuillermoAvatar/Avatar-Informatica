@@ -10,6 +10,28 @@ class AccountMove(models.Model):
 
     _inherit = 'account.move'
 
+    l10n_py_inverse_currency_rate = fields.Float(string="Inverse Current Rate",
+        compute='_compute_inverse_currency_rate', store=True, precompute=True, copy=False,
+        )
+
+    @api.depends('currency_id', 'company_currency_id', 'company_id', 'invoice_date')
+    def _compute_inverse_currency_rate(self):
+        for move in self:
+            if move.is_invoice(include_receipts=True):
+                if move.currency_id:
+                    move.l10n_py_inverse_currency_rate = 1 / self.env['res.currency']._get_conversion_rate(
+                        from_currency=move.company_currency_id,
+                        to_currency=move.currency_id,
+                        company=move.company_id,
+                        date=move._get_invoice_currency_rate_date(),
+                    )
+                else:
+                    move.l10n_py_inverse_currency_rate = 1
+
+    #@api.onchange('invoice_currency_rate')
+    #def _onchange_inverse_currency_rate(self):
+    #    l10n_py_inverse_currency_rate = 1.0 / self.invoice_currency_rate
+
     @api.onchange('l10n_latam_document_type_id', 'l10n_latam_document_number')
     def _inverse_l10n_latam_document_number(self):
         super()._inverse_l10n_latam_document_number()
