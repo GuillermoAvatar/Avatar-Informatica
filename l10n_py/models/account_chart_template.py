@@ -44,7 +44,7 @@ class AccountChartTemplate(models.AbstractModel):
 
         return res
 
-    def try_loading(self, template_code, company, install_demo=False):
+    def try_loading(self, template_code, company, install_demo=False, force_create=True):
         # During company creation load template code corresponding to the AFIP Responsibility
         if not company:
             return
@@ -57,4 +57,4 @@ class AccountChartTemplate(models.AbstractModel):
                 self.env.ref('l10n_py.res_CONTPJ'): 'py_sa',
             }
             template_code = match.get(company.l10n_py_set_responsibility_type_id, template_code)
-        return super().try_loading(template_code, company, install_demo)
+        return super().try_loading(template_code, company, install_demo,force_create)
