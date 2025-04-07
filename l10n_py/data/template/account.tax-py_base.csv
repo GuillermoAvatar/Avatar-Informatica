@@ -63,15 +63,15 @@ ri_tax_ganancias_iva_adicional,"VAT Additional 20%","VAT Additional 20%","VAT 20
 "","","","","","","","","","","tax","invoice","py_acc_11020405","","","","",
 "","","","","","","","","","","base","refund","","","","","",
 "","","","","","","","","","","tax","refund","py_acc_11020405","","","","",
-"ri_tax_percepcion_iva_aplicada","Perc VAT 0%","Perception VAT","Perc VAT","4","120","percent","0","tax_group_percepcion_iva","sale","base","invoice","","Perc IVA","Percepción IVA","Perc IVA","tax_included"
+"ri_tax_percepcion_iva_aplicada","Perc VAT 0%","Perception VAT","Perc VAT","4","120","percent","0","tax_group_percepcion_iva","sale","base","invoice","","Perc IVA","Percepción IVA","Perc IVA","tax_included",
 "","","","","","","","","","","tax","invoice","py_acc_21010503","","","",""
 "","","","","","","","","","","base","refund","","","","",""
 "","","","","","","","","","","tax","refund","py_acc_21010503","","","",""
-"ri_tax_percepcion_ganancias_aplicada","Perc Profits 0%","Perception of Profits","Perc Profits","4","130","percent","0","tax_group_percepcion_ganancias","sale","base","invoice","","Perc Gananc","Percepción Ganancias","Perc Ganancias","tax_included"
+"ri_tax_percepcion_ganancias_aplicada","Perc Profits 0%","Perception of Profits","Perc Profits","4","130","percent","0","tax_group_percepcion_ganancias","sale","base","invoice","","Perc Gananc","Percepción Ganancias","Perc Ganancias","tax_included",
 "","","","","","","","","","","tax","invoice","py_acc_21010503","","","",""
 "","","","","","","","","","","base","refund","","","","",""
 "","","","","","","","","","","tax","refund","py_acc_21010503","","","",""
-"ri_tax_percepcion_ganancias_sufrida","Perc Profits","Perception of Profits","Perc Profits","4","140","fixed","1","tax_group_percepcion_ganancias","purchase","base","invoice","","Perc Gananc","Percepción Ganancias","Perc Ganancias","tax_included"
+"ri_tax_percepcion_ganancias_sufrida","Perc Profits","Perception of Profits","Perc Profits","4","140","fixed","1","tax_group_percepcion_ganancias","purchase","base","invoice","","Perc Gananc","Percepción Ganancias","Perc Ganancias","tax_included",
 "","","","","","","","","","","tax","invoice","py_acc_21010503","","","",""
 "","","","","","","","","","","base","refund","","","","",""
 "","","","","","","","","","","tax","refund","py_acc_21010503","","","",""
