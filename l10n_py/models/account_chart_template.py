@@ -18,7 +18,7 @@ class AccountChartTemplate(models.AbstractModel):
         }
         return match.get(chart_template)
 
-    def _load(self, template_code, company, install_demo):
+    def _load(self, template_code, company, install_demo, force_create=True):
         """ Set companies SET Responsibility and Country if AR CoA is installed, also set tax calculation rounding
         method required in order to properly validate match AFIP invoices.
 
@@ -36,7 +36,7 @@ class AccountChartTemplate(models.AbstractModel):
             # the default VAT type.
             company.partner_id.l10n_latam_identification_type_id = self.env.ref('l10n_py.it_ruc')
 
-        res = super()._load(template_code, company, install_demo)
+        res = super()._load(template_code, company, install_demo, force_create)
 
         # If Responsable Monotributista remove the default purchase tax
         if template_code in ('py_base', 'py_ex'):
