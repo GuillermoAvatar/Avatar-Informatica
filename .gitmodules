@@ -1,0 +1,4 @@
+[submodule "odoo-custom-addons"]
+	path = odoo-custom-addons
+	url = git@github.com:frodri12/odoo-custom-addons.git
+	branch = main
