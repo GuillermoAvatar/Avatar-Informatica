@@ -12,7 +12,6 @@ class AccountPaymentRecibo(models.Model):
 
         result= super(AccountPaymentRecibo, self).create(vals)
 
-
         return result
 
 
