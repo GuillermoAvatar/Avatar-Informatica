@@ -30,6 +30,12 @@
         <field name="model">account.py.vat.line</field>
         <field name="arch" type="xml">
             <list editable="bottom">
+<<<<<<< HEAD
+=======
+                <field name="l10n_latam_identification_type_id"/>
+                <field name="partner_vat"/>
+                <field name="partner_name"/>
+>>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
                 <field name="date"/>
                 <field name="move_id"/>
                 <field name="partner_id"/>
