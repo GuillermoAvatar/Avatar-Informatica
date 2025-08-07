@@ -11,11 +11,7 @@ import requests
 
 from . import libpyedi
 from . import libpydnitws
-<<<<<<< HEAD
-
-=======
 import urllib.parse
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
 
 _logger = logging.getLogger(__name__)
 
@@ -71,6 +67,7 @@ class AccountMove(models.Model):
             #return_info = inv._l10n_ar_do_afip_ws_request_cae(client, auth, transport)
             return_info = inv._l10n_py_do_dnit_ws_request()
             if return_info:
+                _logger.error( "Error de la SET: %s" % str(inv.l10n_py_dnit_ws_request_json))
                 error_invoice = inv
                 validated -= inv
                 break
@@ -215,8 +212,6 @@ class AccountMove(models.Model):
         super()._compute_show_reset_to_draft_button()
         self.filtered(lambda move: move.l10n_py_dnit_ws_response_estres == "A" or move.l10n_py_dnit_ws_response_estres == "O").show_reset_to_draft_button = False
 
-<<<<<<< HEAD
-=======
     l10n_py_dnit_show_print_button = fields.Boolean(compute="_compute_show_button", store=False)
 
     @api.depends('journal_id')
@@ -240,4 +235,14 @@ class AccountMove(models.Model):
             'url': full_url,
             'target': 'new',
         }
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
+
+    def action_print_pdf(self):
+        if self.l10n_py_dnit_show_print_button:
+            return self.action_mostrar_factura()
+        return super().action_print_pdf()
+
+    def action_invoice_sent(self):
+        if self.l10n_py_dnit_show_print_button:
+            return self.action_mostrar_factura()
+        return super().action_invoice_sent()
+

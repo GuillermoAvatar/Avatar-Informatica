@@ -225,8 +225,6 @@ def _get_gDatRec(moveId:AccountMove):
                 gDatRec.update({"dNumIDRec":moveId.partner_id.vat}) #D210
 
         gDatRec.update({"iTiOpe":1 if moveId.partner_id.is_company else 2}) #D202
-<<<<<<< HEAD
-=======
         if moveId.partner_id.l10n_latam_identification_type_id.l10n_py_dnit_code and moveId.partner_id.l10n_latam_identification_type_id.l10n_py_dnit_code != '0':
             if moveId.partner_id.country_id.l10n_py_alpha_code == 'PRY':
                 gDatRec.update({"iTiOpe":2}) #D202
@@ -234,7 +232,6 @@ def _get_gDatRec(moveId:AccountMove):
                 gDatRec.update({"iTiOpe":4}) #D202
         else:
             gDatRec.update({"iTiOpe":2}) #D202
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
         if moveId.partner_id.country_id.l10n_py_alpha_code != "PRY":
             gDatRec.update({"iTiOpe":4}) #D202
         gDatRec.update({"cPaisRec":moveId.partner_id.country_id.l10n_py_alpha_code}) #D203
@@ -493,7 +490,9 @@ def _get_gCamItem( lineId:AccountMoveLine):
     #gCamItem.update({"dDncpE":12345}) #E705
     #gCamItem.update({"dGtin":12345}) #E706
     #gCamItem.update({"dGtinPq":12345}) #E707
-    gCamItem.update({"dDesProSer":productId.name}) #E708
+    
+    #  gCamItem.update({"dDesProSer":productId.name}) #E708
+    gCamItem.update({"dDesProSer":lineId.name}) #E708
     gCamItem.update({"cUniMed":productId.uom_id.l10n_py_dnit_code}) #E709
     gCamItem.update({"dCantProSer":lineId.quantity}) #E711
     # E8.1 campos que describen el precio, tipo de cambio y valor total dela operacion pro item (E720-E729)

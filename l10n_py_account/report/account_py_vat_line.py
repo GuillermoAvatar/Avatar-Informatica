@@ -5,10 +5,7 @@ from odoo.tools import SQL
 class AccountPyVatLine(models.Model):
 
     _name = "account.py.vat.line"
-<<<<<<< HEAD
-=======
     _description = "account.py.vat.line"
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
     _rec_name = 'move_name'
     _auto = False
     _order = 'invoice_date asc, move_name asc, id asc'
@@ -32,31 +29,20 @@ class AccountPyVatLine(models.Model):
                                   ('in_receipt','Purchase Receipt')], readonly=True)
 
     partner_name = fields.Char(readonly=True)
-<<<<<<< HEAD
-    partner_vat = fields.Char(readonly=True)
-=======
     partner_vat = fields.Char('RUC/Identificacion',readonly=True)
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
     partner_timbrado = fields.Char(readonly=True)
     base_10 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="Grav. 10%")
     base_5 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="Grav. 5%")
     not_taxed = fields.Monetary(readonly=True, currency_field='company_currency_id', string="Exento")
     vat_10 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="VAT 10%")
-<<<<<<< HEAD
-    vat_5 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="VAT 10%")
-=======
     vat_5 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="VAT 5%")
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
     base_tax10 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="G 10%")
     base_tax5 = fields.Monetary(readonly=True, currency_field='company_currency_id', string="G 5%")
-    base_exe = fields.Monetary(readonly=True, currency_field='company_currency_id', string="Exento")
+    base_exe = fields.Monetary(readonly=True, currency_field='company_currency_id', string="Base Exento")
 
-<<<<<<< HEAD
-=======
-    tipo_identificacion = fields.Char("TIPO IDENTIFICACION")
+    tipo_identificacion = fields.Char("TIPO IDENTIFICACION") 
     l10n_latam_identification_type_id = fields.Many2one('l10n_latam.identification.type', 'TIPO DE IDENTIFICACION', readonly=True, auto_join=True)
 
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
     def open_journal_entry(self):
         self.ensure_one()
         return self.move_id.get_formview_action()
@@ -94,10 +80,7 @@ class AccountPyVatLine(models.Model):
                      account_move.move_type,
                      rp.name AS partner_name,
                      rp.vat AS partner_vat,
-<<<<<<< HEAD
-=======
                      rp.l10n_latam_identification_type_id,
->>>>>>> 8c6ad8956ae9ed666406175ecfad1a9e70f3eb48
                      account_move.l10n_py_dnit_auth_code AS partner_timbrado,
                      SUM(CASE WHEN btg.l10n_py_vat_dnit_code = '5' THEN account_move_line.balance ELSE 0 END) base_10,
                      SUM(CASE WHEN btg.l10n_py_vat_dnit_code = '4' THEN account_move_line.balance ELSE 0 END) base_5,
